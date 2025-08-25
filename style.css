@@ -145,3 +145,87 @@ body {
         opacity: 0;
     }
 }
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.balloon {
+    position: absolute;
+    width: 50px;
+    height: 60px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 5;
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: #666;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+}
+
+.balloon-red {
+    background: radial-gradient(circle at 30% 40%, #ff4757, #c44569);
+    border: 2px solid #ff3742;
+}
+
+.balloon-blue {
+    background: radial-gradient(circle at 30% 40%, #3742fa, #2f3542);
+    border: 2px solid #2742ff;
+}
+
+.balloon-yellow {
+    background: radial-gradient(circle at 30% 40%, #ffa502, #ff6348);
+    border: 2px solid #ff9500;
+}
+
+.balloon-green {
+    background: radial-gradient(circle at 30% 40%, #2ed573, #1e90ff);
+    border: 2px solid #20bf6b;
+}
+
+.balloon-pink {
+    background: radial-gradient(circle at 30% 40%, #ff3838, #ff9ff3);
+    border: 2px solid #ff2727;
+}
+
+.balloon-purple {
+    background: radial-gradient(circle at 30% 40%, #8c7ae6, #6c5ce7);
+    border: 2px solid #7d70db;
+}
+
+.balloon-orange {
+    background: radial-gradient(circle at 30% 40%, #ff7675, #fd79a8);
+    border: 2px solid #ff6b6b;
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(100vh) translateX(0px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20vh) translateX(50px) rotate(10deg);
+        opacity: 0;
+    }
+}
