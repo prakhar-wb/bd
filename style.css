@@ -52,6 +52,10 @@ body {
     margin: 0;
     text-align: center;
     overflow: hidden;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 #container {
@@ -75,6 +79,8 @@ body {
     cursor: pointer;
     box-shadow: 0 0 10px #ff00ff;
     transition: all 0.2s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #levelup-button:hover {
@@ -105,6 +111,8 @@ body {
     cursor: pointer;
     position: relative;
     z-index: 100;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 #birthday-message {
@@ -121,6 +129,30 @@ body {
 
 .hidden {
     display: none;
+}
+
+#photo-container:not(.hidden) {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#birthday-photo {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    padding: 15px 15px 60px 15px;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4), 0 4px 8px rgba(0,0,0,0.3);
+    border-radius: 2px;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+#birthday-photo:hover {
+    transform: rotate(0deg) scale(1.05);
 }
 
 
@@ -227,5 +259,107 @@ body {
     100% {
         transform: translateY(-20vh) translateX(50px) rotate(10deg);
         opacity: 0;
+    }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    #press-start {
+        font-size: 20px;
+        padding: 10px;
+        line-height: 1.4;
+    }
+    
+    #levelup-button {
+        font-size: 16px;
+        padding: 15px 25px;
+        border-width: 3px;
+    }
+    
+    #birthday-message {
+        font-size: 28px;
+        padding: 0 10px;
+        line-height: 1.3;
+    }
+    
+    #birthday-photo {
+        width: 160px;
+        height: 200px;
+        padding: 12px 12px 50px 12px;
+    }
+    
+    .balloon {
+        width: 35px;
+        height: 45px;
+    }
+    
+    .balloon::after {
+        height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    #press-start {
+        font-size: 16px;
+        padding: 8px;
+    }
+    
+    #levelup-button {
+        font-size: 14px;
+        padding: 12px 20px;
+        border-width: 2px;
+    }
+    
+    #birthday-message {
+        font-size: 20px;
+        padding: 0 15px;
+        word-break: break-word;
+    }
+    
+    #birthday-photo {
+        width: 120px;
+        height: 150px;
+        padding: 10px 10px 35px 10px;
+    }
+    
+    .balloon {
+        width: 28px;
+        height: 36px;
+    }
+    
+    .balloon::after {
+        height: 50px;
+        width: 1px;
+    }
+    
+    .glitter {
+        width: 3px;
+        height: 3px;
+    }
+}
+
+/* Landscape mobile orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+    #press-start {
+        font-size: 18px;
+    }
+    
+    #levelup-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+    
+    #birthday-message {
+        font-size: 24px;
+    }
+    
+    #birthday-photo {
+        width: 100px;
+        height: 125px;
+        padding: 8px 8px 25px 8px;
+    }
+    
+    #container {
+        padding: 10px;
     }
 }

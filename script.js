@@ -1,6 +1,7 @@
 const pressStart = document.getElementById('press-start');
 const levelupButton = document.getElementById('levelup-button');
 const birthdayMessage = document.getElementById('birthday-message');
+const photoContainer = document.getElementById('photo-container');
 
 // Sound Effects with Howler
 const coinSound = new Howl({
@@ -173,9 +174,15 @@ function createRandomFireworks() {
     const fireworksArray = [fireworks1, fireworks2, fireworks3, fireworks4, fireworks5, fireworks6, sparklers];
     const selectedFirework = fireworksArray[Math.floor(Math.random() * fireworksArray.length)];
     
+    const isMobile = window.innerWidth <= 768;
+    const xRange = isMobile ? window.innerWidth * 0.8 : window.innerWidth;
+    const yRange = isMobile ? window.innerHeight * 0.7 : window.innerHeight;
+    const xOffset = isMobile ? window.innerWidth * 0.1 : 0;
+    const yOffset = isMobile ? window.innerHeight * 0.2 : 0;
+    
     selectedFirework.tune({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight
+        x: Math.random() * xRange + xOffset,
+        y: Math.random() * yRange + yOffset
     });
     
     selectedFirework.play();
@@ -199,6 +206,7 @@ levelupButton.addEventListener('click', () => {
   setTimeout(() => {
     birthdaySound.play();
     birthdayMessage.classList.remove('hidden');
+    photoContainer.classList.remove('hidden');
     confetti.play();
     setInterval(createGlitter, 100);
     setInterval(createRandomFireworks, 1500);
