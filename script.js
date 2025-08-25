@@ -30,6 +30,34 @@ const burst = new mojs.Burst({
   }
 });
 
+const confetti = new mojs.Burst({
+  parent: birthdayMessage,
+  radius: { 200: 500 },
+  count: 50,
+  children: {
+    shape: [ 'circle', 'rect', 'polygon' ],
+    fill: [ '#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff' ],
+    strokeWidth: 1,
+    stroke: '#fff',
+    duration: 2000,
+    easing: mojs.easing.bezier(0.1, 1, 0.3, 1),
+    delay: 'stagger(30)',
+    angle: 'rand(0, 360)',
+  }
+});
+
+function createGlitter() {
+    const glitter = document.createElement('div');
+    glitter.classList.add('glitter');
+    glitter.style.left = Math.random() * 100 + 'vw';
+    glitter.style.animationDuration = Math.random() * 2 + 3 + 's';
+    document.body.appendChild(glitter);
+
+    setTimeout(() => {
+        glitter.remove();
+    }, 5000);
+}
+
 pressStart.addEventListener('click', () => {
     coinSound.play();
     pressStart.classList.add('hidden');
@@ -44,5 +72,7 @@ levelupButton.addEventListener('click', () => {
   setTimeout(() => {
     birthdaySound.play();
     birthdayMessage.classList.remove('hidden');
+    confetti.play();
+    setInterval(createGlitter, 100);
   }, 800); // Show message slightly before animation ends
 });
