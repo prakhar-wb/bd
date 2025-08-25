@@ -1,0 +1,124 @@
+/* Starfield styles */
+@keyframes animStar {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-2000px);
+    }
+}
+
+#stars, #stars2, #stars3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#stars {
+    background: transparent;
+    width: 1px;
+    height: 1px;
+    box-shadow: 538px 124px #FFF, 185px 399px #FFF, 1483px 149px #FFF, 1404px 333px #FFF, 808px 45px #FFF, 1203px 319px #FFF, 734px 1339px #FFF, 133px 1255px #FFF, 1429px 1284px #FFF, 1281px 1081px #FFF, 1306px 131px #FFF, 1565px 1075px #FFF, 621px 1230px #FFF, 1135px 1222px #FFF, 1407px 1003px #FFF, 131px 102px #FFF, 1385px 129px #FFF, 1259px 518px #FFF, 1252px 113px #FFF, 1438px 341px #FFF;
+    animation: animStar 50s linear infinite;
+}
+
+#stars2 {
+    background: transparent;
+    width: 2px;
+    height: 2px;
+    box-shadow: 1196px 1007px #FFF, 135px 1220px #FFF, 1318px 133px #FFF, 644px 111px #FFF, 1090px 1299px #FFF, 1401px 129px #FFF, 1314px 1036px #FFF, 100px 138px #FFF, 110px 1205px #FFF, 1182px 110px #FFF, 1038px 113px #FFF, 1006px 1311px #FFF, 121px 113px #FFF, 1116px 101px #FFF, 1138px 111px #FFF, 101px 113px #FFF, 1130px 111px #FFF, 111px 103px #FFF, 111px 113px #FFF, 111px 111px #FFF;
+    animation: animStar 100s linear infinite;
+}
+
+#stars3 {
+    background: transparent;
+    width: 3px;
+    height: 3px;
+    box-shadow: 1026px 1317px #FFF, 115px 120px #FFF, 118px 133px #FFF, 64px 111px #FFF, 100px 129px #FFF, 141px 129px #FFF, 134px 106px #FFF, 100px 138px #FFF, 110px 125px #FFF, 112px 110px #FFF, 108px 113px #FFF, 106px 131px #FFF, 121px 113px #FFF, 116px 101px #FFF, 118px 111px #FFF, 101px 113px #FFF, 130px 111px #FFF, 111px 103px #FFF, 111px 113px #FFF, 111px 111px #FFF;
+    animation: animStar 150s linear infinite;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+#container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#levelup-button {
+    background-color: #ff00ff;
+    color: #fff;
+    border: 4px solid #fff;
+    padding: 20px 40px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #ff00ff;
+    transition: all 0.2s ease;
+}
+
+#levelup-button:hover {
+    background-color: #fff;
+    color: #ff00ff;
+    box-shadow: 0 0 20px #fff;
+}
+
+@keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -500px 0;
+    }
+    100% {
+        background-position: 500px 0;
+    }
+}
+
+#press-start {
+    font-size: 28px;
+    color: #ffff00;
+    text-shadow: 0 0 10px #ffff00;
+    animation: flash 1.5s infinite;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+}
+
+#birthday-message {
+    font-size: 48px;
+    color: #00ff00;
+    text-shadow: 0 0 15px #00ff00;
+    background: linear-gradient(to right, #00ff00 20%, #ffff00 40%, #00ff00 60%, #ffff00 80%);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+}
+
+.hidden {
+    display: none;
+}
